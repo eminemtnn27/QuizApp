@@ -13,7 +13,7 @@ class QuizCreateRequest extends FormRequest
      */
     public function authorize()             
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class QuizCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required|min:3|max:200',
+            'description'=>'max:1000',
+            'finished_at'=>'nullable|after:'.now()
+
+        ];
+    }
+    public function attributes(){
+        return[
+            'title'=>'Quiz Başlığı',
+            'description'=>'Quiz Açıklaması',
+            'finished_at'=>'Bitiş Tarihi'
         ];
     }
 }
