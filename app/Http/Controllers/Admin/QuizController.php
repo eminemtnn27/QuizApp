@@ -90,7 +90,7 @@ class QuizController extends Controller
         Quiz::find($id)->update($request->except(['_method','_token']));
         return redirect()->route('quizzes.index')->withSuccess('Quiz güncelleme işlemi başarıyla gerçekleşti.');
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      *

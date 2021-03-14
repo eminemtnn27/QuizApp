@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header"> Anasayfa   </x-slot>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8"> 
             <div class="list-group">
                 @foreach ($quizzes as $quiz )
                 <a href="{{route('quiz.detail',$quiz->slug)}}" class="list-group-item list-group-item-action flex-column align-items-start">

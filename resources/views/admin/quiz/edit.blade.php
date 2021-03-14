@@ -20,7 +20,7 @@
                 <option @if($quiz->status==="passive") selected @endif value="passive">Pasif</option>
                 <option @if($quiz->status==="draft") selected @endif value="draft">Taslak</option>
 
-            </select>
+            </select> 
         </div>
         <div class="form-group">
             <input type="checkbox" id="isFinished" @if($quiz->finished_at) checked @endif>

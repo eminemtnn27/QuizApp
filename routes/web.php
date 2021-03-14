@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('quiz/{slug}',[MainController::class,'quiz_detail'])->name('quiz.detail');
 
 });
-
+ 
 
 Route::group(['middleware'=>['auth','isAdmin'],'prefix'=>'admin'],function(){
     Route::get('quizzes/{id}',[QuizController::class,'destroy'])->whereNumber('id')->name('quizzes.destroy');
