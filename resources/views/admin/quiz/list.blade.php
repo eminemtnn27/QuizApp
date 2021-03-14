@@ -2,13 +2,30 @@
     <x-slot name="header"> Quizler </x-slot>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">
+            <h5 class="card-title float-right">
                 <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Quiz Oluştur</a>
             </h5>
+            <form method="GET" action="">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <input type="text" name="title" placeholder="Quiz Adı" value="{{request()->get('title')}}" class="form-control">
+                    </div>'title'
+                    <div class="col-md-3">
+                        <select class="form-control" onchange="this.form.submit()" name="status">
+                            <option value="">Durum Seçiniz</option>
+                            <option value="publish">Aktif</option>
+                            <option value="passive">Pasif</option>
+                            <option value="draft">Taslak</option>
+
+                        </select>
+                    </div>
+                </div>
+            </form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Quiz</th>
+                        <th scope="col">Soru Sayısı</th>
                         <th scope="col">Durum</th>
                         <th scope="col">Bitiş Tarihi</th>
                         <th scope="col">İşlemler</th>
@@ -19,9 +36,24 @@
                     
                     <tr>
                         <td >{{$quiz->title}}</td>
-                        <td>{{$quiz->status}}</td>
-                        <td>{{$quiz->finished_at}}</td>
+                        <td >{{$quiz->questions_count}}</td>
+                        <td>
+                            @switch($quiz->status)
+                            @case('publish')
+                            <span class="badge badge-success">Aktif</span>
+                            @break
+                            @case('passive')
+                            <span class="badge badge-danger">Pasif</span>
+                            @break 
+                            @case('draft')
+                            <span class="badge badge-warning">Taslak</span>
+                            @break 
+                            @default
+                            @endswitch
+                        </td>
+                        <td><span title="{{$quiz->finished_at}}">{{$quiz->finished_at ? $quiz->finished_at->diffForHumans(): '-'}}</span></td>
                         <td> 
+                            <a href="{{route('questions.index',$quiz->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-question"></i></a>
                             <a href="{{route('quizzes.edit',$quiz->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
                             <a href="{{route('quizzes.destroy',$quiz->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                           </td>
