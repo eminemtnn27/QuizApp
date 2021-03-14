@@ -7,19 +7,23 @@
             </h5>
             <form method="GET" action="">
                 <div class="form-row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <input type="text" name="title" placeholder="Quiz Adı" value="{{request()->get('title')}}" class="form-control">
-                    </div>'title'
-                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-2">
                         <select class="form-control" onchange="this.form.submit()" name="status">
-                            <option value="">Durum Seçiniz</option>
-                            <option value="publish">Aktif</option>
-                            <option value="passive">Pasif</option>
-                            <option value="draft">Taslak</option>
-
+                            <option  value="">Durum Seçiniz</option>
+                            <option @if(request()->get('status')=='publish') selected @endif value="publish">Aktif</option>
+                            <option @if(request()->get('status')=='passive') selected @endif value="passive">Pasif</option>
+                            <option @if(request()->get('status')=='draft') selected @endif value="draft">Taslak</option>
                         </select>
                     </div>
-                </div>
+                    @if (request()->get('title') || request()->get('status')) 
+                        <div class="col-md-2">
+                            <a href="{{route('quizzes.index')}}" class="btn btn-secondary">Sıfırla</a>
+                         </div>
+             @endif
+            </div>
             </form>
             <table class="table table-bordered">
                 <thead>
@@ -61,7 +65,7 @@
                     @endforeach
                     </tbody>
             </table>
-            {{$quizzes->links()}}
+            {{$quizzes->withQueryString()->links()}}
         </div>
     </div>
 </x-app-layout>
