@@ -5,7 +5,7 @@
     <p class="card-text">
         <div class="row">
             <div class="col-md-4">
-               <ul class="list-group">
+               <ul class="list-group">   
                    @if($quiz->finished_at)
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Son Katılım Tarihi

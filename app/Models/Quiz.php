@@ -13,7 +13,7 @@ class Quiz extends Model
     use HasFactory;
    protected $fillable=['title','description','finished_at'];
    protected $dates=['finished_at'];
-
+ 
    public function getFinishedAtAttribute($date){
     return $date ? Carbon::parse($date) :null;
    }
