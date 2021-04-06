@@ -23,7 +23,7 @@
                         Ortalama Puan
                         <span class="badge badge-secondary badge-pill">60</span>
                     </li>
-                </ul>
+                </ul>  
             </div>
             <div class="col-md-8">
           {{$quiz->description}}</p>
