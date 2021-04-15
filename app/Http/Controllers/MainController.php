@@ -19,5 +19,5 @@ class MainController extends Controller
     } 
     public function result($slug){
         return $slug;
-    }
+    }   
 }

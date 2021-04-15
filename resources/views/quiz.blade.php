@@ -12,7 +12,7 @@
                         <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}1" value="answer1" checked>
                             <label class="form-check-label" for="quiz{{$question->id}}1">
                                 {{$question->answer1}}
-                            </label>
+                            </label> 
                     </div>
                      <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{$question->id}}" id="quiz{{$question->id}}2" value="answer2" checked>

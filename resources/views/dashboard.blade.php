@@ -12,7 +12,7 @@
                     <p class="mb-1">{{Str::limit($quiz->description,100)}}</p>
                     <small>{{$quiz->questions_count}} Soru</small>
                 </a>
-                @endforeach
+                @endforeach 
             <div class="mt-2"> {{$quizzes->links()}}</div> 
             </div>
         </div>
