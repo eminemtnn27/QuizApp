@@ -15,7 +15,7 @@ class AnswerFactory extends Factory
     protected $model = Answer::class;
 
     /**
-     * Define the model's default state.
+     * Define the model's default state. 
      *
      * @return array
      */

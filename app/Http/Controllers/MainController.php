@@ -18,6 +18,6 @@ class MainController extends Controller
         return view('quiz_detail',compact($quiz));
     } 
     public function result($slug){
-        return $slug;
+        return $slug;  
     }   
 }
