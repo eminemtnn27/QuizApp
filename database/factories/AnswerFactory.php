@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Answer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnswerFactory extends Factory
@@ -22,7 +22,9 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'=>rand(1,10),
+            'question_id'=>rand(1,100),
+            'answer'=>'answer'.rand(1,4)
         ];
     }
 }
