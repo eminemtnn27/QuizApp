@@ -9,8 +9,10 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Quiz extends Model
 {
-    use Sluggable;
     use HasFactory;
+    use Sluggable;
+
+    
    protected $fillable=['title','description','status','finished_at','slug'];
    protected $dates=['finished_at'];
  
