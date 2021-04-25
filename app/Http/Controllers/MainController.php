@@ -23,7 +23,7 @@ class MainController extends Controller
      public function result(Request $request,$slug){
          $quiz=Quiz::with('questions')->whereSlug($slug)->first() ?? abort(404,'Quiz bulunamadı');
           $correct=0;
-
+ 
         if($quiz->my_result){
             abort(404,"bu Quiz'e daha önce katıldınız");
         }

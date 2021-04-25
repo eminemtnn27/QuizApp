@@ -42,7 +42,7 @@
                                 <span class="badge badge-light badge-pill">{{$quiz->details['average']}}</span>
                             </li>
                         @endif
-                       
+                        
                     </ul>  
                 </div>
                 <div class="col-md-8">
