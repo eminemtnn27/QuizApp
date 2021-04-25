@@ -28,7 +28,7 @@ class MainController extends Controller
             abort(404,"bu Quiz'e daha önce katıldınız");
         }
 
-
+    
             foreach($quiz->questions as $question){ 
                 Answer::create([
                     'user_id'=>auth()->user()->id,
