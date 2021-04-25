@@ -20,7 +20,7 @@ class MainController extends Controller
         $quiz=Quiz::whereSlug($slug)->withCount('questions')->first() ?? abort(404,'Quiz bulunamadı');
         return view('quiz_detail',compact('quiz'));
     } 
-    public function result(Request $request,$slug){
+     public function result(Request $request,$slug){
          $quiz=Quiz::with('questions')->whereSlug($slug)->first() ?? abort(404,'Quiz bulunamadı');
           $correct=0;
             foreach($quiz->questions as $question){ 
@@ -36,7 +36,7 @@ class MainController extends Controller
                 }
             }
 
-        return $point=round((100/count($quiz->questions)) * $correct);
+        $point=round((100/count($quiz->questions)) * $correct);
         $wrong=count($quiz->questions)-$correct;
         
         Result::create([
@@ -46,7 +46,7 @@ class MainController extends Controller
         'correct'=>$correct,
         'wrong'=>$wrong,
         ]);
-     
-       //  return redirect()->route('quiz.detail',$quiz->slug)->withSuccess("Quizi başarıyla bitirdin.Puanın:".$point);
-    }   
+
+      return redirect()->route('quiz.detail',$quiz->slug)->withSuccess("Quizi başarıyla bitirdin.Puanın:".$point);
+    }  
 }

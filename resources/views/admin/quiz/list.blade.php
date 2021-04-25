@@ -6,6 +6,7 @@
                 <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Quiz Oluştur</a>
             </h5>
             <form method="GET" action="">
+                @csrf
                 <div class="form-row">
                     <div class="col-md-2">
                         <input type="text" name="title" placeholder="Quiz Adı" value="{{request()->get('title')}}" class="form-control">
