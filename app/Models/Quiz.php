@@ -43,7 +43,7 @@ class Quiz extends Model
     public function my_result(){
         return $this->hasOne('App\Models\Result')->where('user_id',auth()->user()->id);
     }
-
+ 
     public function topTen(){
         return $this->results()->orderByDesc('point')->take(10);
     }
