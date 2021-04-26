@@ -62,7 +62,8 @@ class QuizController extends Controller
      */
     public function show($id)
     {
-        return "show fonksiyonu";
+         $quiz =Quiz::with('topTen.user','results.user')->withCount('questions')->find($id) ?? abort(404,'Quiz Bulunamadı.'); 
+        return view('admin.quiz.show',compact('quiz'));
     }
 
     /**
