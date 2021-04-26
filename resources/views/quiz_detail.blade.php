@@ -24,7 +24,7 @@
                             Son Katılım Tarihi
                             <span title="{{$quiz->finished_at}}" class="badge badge-secondary badge-pill">{{$quiz->finished_at->diffForHumans()}}</span>
                         </li>
-                   @endif 
+                   @endif  
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Soru Sayısı
                             <span class="badge badge-secondary badge-pill">
