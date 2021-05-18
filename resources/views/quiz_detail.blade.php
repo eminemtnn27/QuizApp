@@ -16,7 +16,7 @@
                             <div class="float-right">
                                  <span  class="badge badge-success  badge-pill">{{$quiz->my_result->correct }} Doğru </span>
                             <span  class="badge badge-danger  badge-pill">{{$quiz->my_result->wrong}} Yanlış</span>
-                            </div>
+                            </div> 
                          </li> 
                     @endif 
                     @if($quiz->finished_at)
